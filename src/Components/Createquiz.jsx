@@ -1,6 +1,6 @@
 import { Navbar } from "./Navbar"
 import * as React from 'react';
-import { useState, useContext } from "react";
+import { useState} from "react";
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SaveIcon from '@mui/icons-material/Save';
@@ -8,6 +8,9 @@ import TextField from '@mui/material/TextField';
 import AddIcon from '@mui/icons-material/Add';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import DownloadDoneIcon from '@mui/icons-material/DownloadDone';
+import {useDispatch, useSelector} from 'react-redux';
+import { savequiz } from "../State/Action";
+import { useEffect } from "react";
 
 export function Createquiz() {
     const [Show, setShow] = useState(false);
@@ -19,16 +22,36 @@ export function Createquiz() {
     const [remove2, setLONGRemove] = useState([]);
     const [remove3, setMCQRemove] = useState([]);
     const [isButtonDisabled, setButtonDisabled] = useState(true);
-
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
+    const [mcq, setMCQ] = useState('');
+    const [short, setShort] = useState('');
+    const [long, setLong] = useState('');
+    const dispatch=useDispatch();
+    const select=useSelector((state)=>state.addQuiz);
     // const [mcqcounter, setMCQCounter] = useState(0);
     // const [shortcounter, setSHORTCounter] = useState(0);
     // const [longcounter, setLONGCounter] = useState([]);
 
+   
 
-    const handleInputChange = (event) => {
+    const handleTitleChange = (event) => {
+        setTitle(event.target.value);
         setButtonDisabled(event.target.value === '');
     };
 
+    const handleDescriptionChange = (event) => {
+        setDescription(event.target.value);
+    };
+
+    // const allData={
+    //     "title":title,
+    //     "description":description,
+    // }
+
+    // useEffect(()=>{
+    //     localStorage.setItem("data_local",JSON.stringify(allData));
+    // },[title, description]);
 
     const addMCQQuestion = (event) => {
         setMCQQuestions([...mcqquestions, { id: mcqquestions.length + 1 }]);
@@ -103,9 +126,8 @@ export function Createquiz() {
                         id="outlined-required"
                         label="Title"
                         placeholder="Enter Your Title "
-                        onChange={handleInputChange}
-
-
+                        onChange={handleTitleChange}
+                        value={title}
                     />
                     <br />
                     <br />
@@ -117,6 +139,8 @@ export function Createquiz() {
                         placeholder="Enter Your Description "
                         multiline
                         rows={5}
+                        onChange={handleDescriptionChange}
+                        value={description}
                     />
 
                     <div className="question-div">
@@ -227,10 +251,11 @@ export function Createquiz() {
                     <Button id="add-question-btn" disabled={isButtonDisabled} variant="outlined" startIcon={<AddIcon />} onClick={() => { return (setShow(true)) }}>
                         Quiz Type
                     </Button>
-                    <Button variant="outlined" startIcon={<SaveIcon />} onClick={onclick}>
+                    <Button variant="outlined" startIcon={<SaveIcon />} onClick={()=>{dispatch(savequiz(title));dispatch(savequiz(description));}}>
 
                         Save Quiz
                     </Button>
+                    {select}
                 </div>
             </div>
         </div> : null}

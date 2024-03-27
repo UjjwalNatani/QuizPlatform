@@ -1,4 +1,5 @@
-import Logo from "./Images/Logo.png"
+import Logo from "./Images/Logo.png";
+import {Link} from 'react-router-dom';
 
 export function Navbar() {
     return (
@@ -6,8 +7,8 @@ export function Navbar() {
             <a href="/#home"><img className="nav-logo" src={Logo} alt="logo" title="QuizWise" /></a>
             <h3>QuizWise</h3>
             <div className="navlinks">
-                <a href="/#Home" title="Home" className="navbar-brand">Home</a>
-                <a href="/Myquiz" title="My Quiz" className="navbar-brand">My Quiz</a>
+                <Link to="/#Home" title="Home" className="navbar-brand">Home</Link>
+                <Link to="/Myquiz" title="My Quiz" className="navbar-brand">My Quiz</Link>
             </div>
         </div>
     )

@@ -1,7 +1,21 @@
 import { Navbar } from "./Navbar";
 import Button from '@mui/material/Button';
+import { useSelector } from "react-redux";
+import { useEffect, useState} from 'react';
 
 export function Myquiz() {
+    const select=useSelector((state)=>state.addQuiz);
+    const [quizData, setQuizData] = useState(null);
+
+
+    useEffect(() => {
+        const storedData = localStorage.getItem("data_local");
+        if (storedData) {
+            const parsedData = JSON.parse(storedData);
+            setQuizData(parsedData);
+        }
+    }, []);
+
     return (
         <div id="Myquiz">
             <Navbar />
@@ -16,7 +30,13 @@ export function Myquiz() {
                 <label>Play Quiz</label>
             </div>
             <div className="my-quizzes">
-                
+            {/* {quizData && (
+                <div>
+                    <h2>{quizData.title}</h2>
+                    <p>{quizData.description}</p>
+                </div>
+            )} */}
+            value:{select}
             </div>
 
         </div>
