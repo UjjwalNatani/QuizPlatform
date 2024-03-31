@@ -30,7 +30,7 @@
 .nav {
     border: 2px solid grey;
     border-radius: 40px;
-    background-color: rgba(20, 7, 45, 0.1);
+    background-color: rgba(20, 7, 45, 0.9);
     box-shadow: 6px 3px 20px rgb(255, 255, 255);
 }
 
@@ -40,7 +40,7 @@
     display: flex;
     justify-content: center;
     color: aliceblue;
-    width: 96%;
+    width: 100%;
 }
 
 .typewriter {
@@ -75,7 +75,6 @@
 }
 
 .homediv {
-    /* border: 2px solid black; */
     margin-left: 220px;
     margin-top: 50px;
     display: flex;
@@ -87,7 +86,6 @@
 }
 
 .create-div {
-    /* border: 2px solid black; */
     border-radius: 50px;
     margin: 20px;
     height: 80%;
@@ -135,7 +133,6 @@
 }
 
 .create-sub-div {
-    /* border: 2px solid white; */
     height: fit-content;
     width: fit-content;
     background-color: rgb(84, 87, 105);
@@ -163,7 +160,6 @@
 .create-button-div Button:hover {
     background-color: rgb(81, 228, 13);
     color: black;
-
 }
 
 .addquestion-button-div1 {
@@ -177,7 +173,6 @@
 }
 
 .addquestion-button-div2 {
-    
     border-radius: 20px;
     font-weight: 500;
     border: 2px solid white;
@@ -193,8 +188,6 @@
 
 .addquestion-button-div2 h1 {
     color: black;
-   
-
 }
 
 .addquestion-options Button {
@@ -211,7 +204,6 @@
 }
 
 .question-div{
-    /* border: 2px solid black; */
     width: 80vw;
     box-shadow: 5px 5px 8px 2px rgba(255, 255, 255, 0.8);
     margin: 10px;
@@ -219,7 +211,7 @@
 }
 
 .textfield-question{
-    width: 90%;
+    width: 95%;
     margin: 10px !important;
     background-color: white;
 }
@@ -253,10 +245,69 @@
     background-color: rgb(84, 87, 105);
     margin-left: 150px;
     color: white;
-    display: flex;
-    justify-content: space-around;
+    padding: 20px;
 }
 
 
 
+
 /* //----------------------My quiz page---------------------------------- */
+
+
+/* //----------------------Play quiz page---------------------------------- */
+.play-main-div{
+    height: 70vh;
+    width: 80vw;
+    margin-top: 110px;
+    margin-left: 150px;
+    background-color: rgb(84, 87, 105);
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+/* //----------------------Play quiz page---------------------------------- */
+
+
+/* //----------------------Start quiz page---------------------------------- */
+.start-main-div{
+    height: 70vh;
+    width: 80vw;
+    margin-top: 110px;
+    margin-left: 150px;
+    background-color: rgb(84, 87, 105);
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.textfield-answer{
+    width: 95%;
+    margin: 10px !important;
+    background-color: white;
+}
+
+.start-questions{
+    margin-left: 60px;
+}
+
+.start-questions-options{
+    margin: 25px;
+}
+
+.start-questions-button{
+    margin-left: 500px !important;
+    margin-top: 50px !important;
+    width: 150px;
+    height: 50px;
+    border-radius: 500px !important;
+    box-shadow: 5px 8px 3px 2px rgba(0, 0, 0, 0.8) !important;
+}
+
+.start-score{
+    display: flex;
+    justify-content: center;
+    margin-top: 220px;
+    color:darkcyan ;
+    text-shadow: 4px 2px 5px rgba(255, 255, 255, 0.6);
+}
+/* //----------------------Start quiz page---------------------------------- */
