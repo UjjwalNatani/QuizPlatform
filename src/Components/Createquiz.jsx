@@ -1,6 +1,6 @@
 import { Navbar } from "./Navbar"
 import * as React from 'react';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SaveIcon from '@mui/icons-material/Save';
@@ -19,6 +19,18 @@ export function Createquiz() {
     const [isButtonDisabled, setButtonDisabled] = useState(true);
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+          if (Show && !event.target.closest('.addquestion-button-div2')) {
+            setShow(false);
+          }
+        };
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+          };
+        }, [Show]);
 
     const date = () => {
         const currentDate = new Date();

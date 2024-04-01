@@ -99,7 +99,7 @@ export function Startquiz() {
             {screen ?
                 <div>
                     <Navbar/>
-                    <h1 style={{ textAlign: "center", marginTop: '40px' }}>{parsedData.title}</h1>
+                    <h1 style={{ textAlign: "center", marginTop: '40px', textShadow:'3px 3px 3px rgba(255,255,255,0.6)' }}>{parsedData.title}</h1>
                     {
                         mcqData === undefined ? null :
                             <div className='start-questions'>

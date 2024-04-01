@@ -1,4 +1,4 @@
-import Typewriter from "../Animation";
+import Typewriter from './Animation';
 import { Navbar } from '../Components/Navbar';
 
 export function Home() {

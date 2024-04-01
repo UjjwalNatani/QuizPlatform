@@ -163,13 +163,23 @@
 }
 
 .addquestion-button-div1 {
-    height: 80vh;
-    width: 100vw;
+    /* height: 80vh;
+    width: 100vw; */
     display: flex;
     z-index: 1;
     position: absolute;
     justify-content: center;
     align-items: center;
+
+    /* display: block;
+    position: fixed;
+    z-index: 1; */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
 }
 
 .addquestion-button-div2 {
@@ -179,15 +189,22 @@
     box-shadow: 8px -6px 15px 2px rgba(255, 255, 255, 0.8);
     background-color: rgba(84, 87, 105, 0.8);
     height: 30%;
-    width: 30%;
+    /* width: 30%; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    /* background-color: #fefefe; */
+    margin: 15% auto;
+    padding: 20px;
+    /* border: 1px solid #888; */
+    width: 50%;
 }
 
 .addquestion-button-div2 h1 {
     color: black;
+    margin-top: 0;
 }
 
 .addquestion-options Button {
@@ -248,9 +265,6 @@
     padding: 20px;
 }
 
-
-
-
 /* //----------------------My quiz page---------------------------------- */
 
 
@@ -264,6 +278,7 @@
     color: white;
     display: flex;
     flex-direction: column;
+    box-shadow: 3px 4px 4px 8px rgba(255,255,255,0.4);
 }
 /* //----------------------Play quiz page---------------------------------- */
 
@@ -278,6 +293,7 @@
     color: white;
     display: flex;
     flex-direction: column;
+    box-shadow: 3px 4px 4px 8px rgba(255,255,255,0.4);
 }
 
 .textfield-answer{
