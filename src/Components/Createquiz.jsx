@@ -9,7 +9,6 @@ import AddIcon from '@mui/icons-material/Add';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import DoneIcon from '@mui/icons-material/Done';
 
-
 export function Createquiz() {
     const [Show, setShow] = useState(false);
     const [Disable, setDisable] = useState(true);
