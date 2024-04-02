@@ -21,7 +21,7 @@ This is a quiz platform built using React, designed to facilitate the creation, 
 
 ### Getting Started:
 
-To get started with the app, simply clone this repository and follow the instructions in the README.md file to set up the development environment and run the app locally.
+To get started with the app, simply clone this repository and set up the development environment and run the app locally.
 
 ### Contribute:
 
@@ -29,8 +29,5 @@ We welcome contributions from the community to help enhance and improve the app 
 
 ### Credits:
 
-This project was developed by [Your Name] and [Collaborator Name], with inspiration and guidance from various online resources and tutorials.
+This project was developed by Ujjwal Natani and Neeraj Sharma, with inspiration and guidance from various online resources and tutorials.
 
-### License:
-
-This project is licensed under the [License Name] license. See the LICENSE.md file for more details.
