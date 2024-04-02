@@ -4,15 +4,19 @@ import { useState, useRef } from 'react';
 import { Navbar } from './Navbar';
 
 export function Startquiz() {
+    // State variables to track quiz progress, current question index and scores
     const [shortScore, setShortScore] = useState(false);
     const [longScore, setLongScore] = useState(false);
     const [mcqScore, setMcqScore] = useState(false);
     const [screen, setScreen] = useState(true);
     const [correct, setCorrect] = useState(0);
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
+    // Get quiz data and parsed data from localStorage
     const questions = JSON.parse(localStorage.getItem("questions"));
     const parsedData = JSON.parse(localStorage.getItem("quiz"));
 
+    // Separate questions by type
     let mcqData;
     let shortData;
     let longData;
@@ -27,8 +31,10 @@ export function Startquiz() {
         longData = questions[2];
     }
 
+    // Variable to store user's answer
     let userAnswer;
 
+    // Helper functions to handle user input for different question types
     const handleShortDataChange = (event) => {
         userAnswer = event.target.value;
     };
@@ -40,30 +46,33 @@ export function Startquiz() {
         userAnswer = index;
     };
 
+    // useRef hook to access the text field element
     const textFieldRef = useRef(null);
-    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
+    // Functions to handle next question and submit answer for short answer questions
     const handleShortNextQuestion = () => {
         setCurrentQuestionIndex(currentQuestionIndex + 1);
         if (userAnswer === shortData[currentQuestionIndex].answer) {
-            setCorrect(correct + 1);
+            setCorrect(correct + 1);          // Update correct answer count
         }
-        textFieldRef.current.value = '';
+        textFieldRef.current.value = '';      // Clear the text field  
     };
 
     const handleShortSubmitQuestion = () => {
         if (userAnswer === shortData[currentQuestionIndex].answer) {
             setCorrect(correct + 1);
         }
-        setShortScore(true);
-        setScreen(false);
+        setShortScore(true);                  // Set flag to display short answer score
+        setScreen(false);                     // Hide question screen
     }
+
+    // Functions to handle next question and submit answer for short answer questions
     const handleLongNextQuestion = () => {
         setCurrentQuestionIndex(currentQuestionIndex + 1);
         if (userAnswer === longData[currentQuestionIndex].answer) {
-            setCorrect(correct + 1);
+            setCorrect(correct + 1);         // Update correct answer count
         }
-        textFieldRef.current.value = '';
+        textFieldRef.current.value = '';     // Clear the text field
 
     };
 
@@ -71,18 +80,20 @@ export function Startquiz() {
         if (userAnswer === longData[currentQuestionIndex].answer) {
             setCorrect(correct + 1);
         }
-        setLongScore(true);
-        setScreen(false);
+        setLongScore(true);                  // Set flag to display short answer score
+        setScreen(false);                    // Hide question screen
     }
+
+    // Functions to handle next question and submit answer for short answer questions
     const handleMcqNextQuestion = () => {
         setCurrentQuestionIndex(currentQuestionIndex + 1);
         if (userAnswer === mcqData[currentQuestionIndex].rightOption) {
-            setCorrect(correct + 1);
+            setCorrect(correct + 1);         // Update correct answer count
         }
 
         const radioButtons = document.querySelectorAll('input[type="radio"]');
         radioButtons.forEach(radioButton => {
-            radioButton.checked = false; 
+            radioButton.checked = false;      // Clear the selected radio button 
         });
     };
 
@@ -90,16 +101,20 @@ export function Startquiz() {
         if (userAnswer === mcqData[currentQuestionIndex].rightOption) {
             setCorrect(correct + 1);
         }
-        setMcqScore(true);
-        setScreen(false);
+        setMcqScore(true);                  // Set flag to display short answer score
+        setScreen(false);                   // Hide question screen
     }
 
     return (
         <div className="start-main-div">
+            {/* Conditionally render content based on the 'screen' state */}
             {screen ?
                 <div>
-                    <Navbar/>
-                    <h1 style={{ textAlign: "center", marginTop: '40px', textShadow:'3px 3px 3px rgba(255,255,255,0.6)' }}>{parsedData.title}</h1>
+                    {/* Render Navbar component */}
+                    <Navbar />
+                    {/* Render title */}
+                    <h1 style={{ textAlign: "center", marginTop: '40px', textShadow: '3px 3px 3px rgba(255,255,255,0.6)' }}>{parsedData.title}</h1>
+                    {/* Render multiple choice questions if data is available */}
                     {
                         mcqData === undefined ? null :
                             <div className='start-questions'>
@@ -111,7 +126,7 @@ export function Startquiz() {
                                         </div>
 
                                     ))}
-
+                                {/* Render next or submit button based on question index */}
                                 {currentQuestionIndex < mcqData.length - 1 && (
                                     <Button className='start-questions-button' onClick={handleMcqNextQuestion} variant="contained"> Next Ques </Button>
                                 )}
@@ -121,6 +136,7 @@ export function Startquiz() {
                             </div>
                     }
 
+                    {/* Render short answer questions if data is available */}
                     {
                         shortData === undefined ? null :
                             <div className='start-questions'>
@@ -146,6 +162,7 @@ export function Startquiz() {
                             </div>
                     }
 
+                     {/* Render long answer questions if data is available */}
                     {
                         longData === undefined ? null :
                             <div className='start-questions'>
@@ -176,14 +193,19 @@ export function Startquiz() {
                 </div>
                 : null}
 
+            {/* Render short answer score if available */}
             {shortScore ? <div className='start-score'>
                 <Navbar />
                 <h1 style={{ fontSize: '80px' }}>You have scored {correct} out of {shortData.length}</h1>
             </div> : null}
+
+            {/* Render long answer score if available */}
             {longScore ? <div className='start-score'>
                 <Navbar />
                 <h1 style={{ fontSize: '80px' }}>You have scored {correct} out of {longData.length}</h1>
             </div> : null}
+
+            {/* Render MCQ answer score if available */}
             {mcqScore ? <div className='start-score'>
                 <Navbar />
                 <h1 style={{ fontSize: '80px' }}>You have scored {correct} out of {mcqData.length}</h1>

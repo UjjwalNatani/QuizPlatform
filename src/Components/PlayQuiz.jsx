@@ -2,15 +2,17 @@ import { Button } from "@mui/material";
 import { Navbar } from "./Navbar";
 
 export function PlayQuiz() {
+    // Get the quiz data from localStorage
     const parsedData = JSON.parse(localStorage.getItem("quiz"));
 
+  // Separate MCQ, Short, and Long questions into separate arrays with default values
     let mcqQuestions;
     {
         let mcqQues = parsedData.mcqQuestions;
         if (mcqQues.length !== 0) {
             mcqQuestions = mcqQues;
         } else if (mcqQues.length === 0) {
-            mcqQuestions = [];
+            mcqQuestions = [];              // Ensure mcqQuestions is always an array
         }
     }
 
@@ -30,6 +32,7 @@ export function PlayQuiz() {
         }
     }
 
+    // Combine all question types into a single array
     const questions = [mcqQuestions,shortQuestions,longQuestions];
     
     return (

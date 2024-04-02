@@ -11,6 +11,7 @@ function App() {
   return (
     <div >
       <Routes>
+        {/* Define routing for different paths */}
         <Route path='/' element={<Home/>}/>
         <Route path='/Createquiz' element={<Createquiz/>} />
         <Route path='/Myquiz' element={<Myquiz/>} />
