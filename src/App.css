@@ -277,13 +277,46 @@
 .play-main-div{
     height: 70vh;
     width: 80vw;
-    margin-top: 110px;
+    margin-top: 130px;
     margin-left: 150px;
     background-color: rgb(84, 87, 105);
     color: white;
     display: flex;
     flex-direction: column;
     box-shadow: 3px 4px 4px 8px rgba(255,255,255,0.4);
+}
+
+.play-title{
+    font-size: 50px;
+    margin-left: 20px;
+    margin-top: 20px;
+    border: 2px dotted black;
+    width: fit-content;
+    background-color: rgb(27, 49, 97);
+    padding: 20px;
+    border-radius: 50px;
+}
+
+.play-description{
+    font-size: 50px;
+    margin-left: 20px;
+    margin-top: 20px;
+    border: 2px solid black;
+    width: fit-content;
+    background-color: rgb(27, 49, 97);
+    padding: 10px;
+    border-radius: 50px;
+}
+
+.play-question{
+    font-size: 30px;
+    margin-left: 20px;
+    margin-top: 20px;
+    border: 2px solid black;
+    width: fit-content;
+    background-color: rgb(27, 49, 97);
+    padding: 10px;
+    border-radius: 50px;
 }
 /* //----------------------Play quiz page---------------------------------- */
 
@@ -325,10 +358,13 @@
 }
 
 .start-score{
-    display: flex;
-    justify-content: center;
-    margin-top: 220px;
+    text-align: center;
+    margin-top: 200px;
     color:darkcyan ;
     text-shadow: 4px 2px 5px rgba(255, 255, 255, 0.6);
+}
+
+.start-score h1{
+
 }
 /* //----------------------Start quiz page---------------------------------- */

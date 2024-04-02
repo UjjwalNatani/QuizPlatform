@@ -196,19 +196,19 @@ export function Startquiz() {
             {/* Render short answer score if available */}
             {shortScore ? <div className='start-score'>
                 <Navbar />
-                <h1 style={{ fontSize: '80px' }}>You have scored {correct} out of {shortData.length}</h1>
+                <h1 style={{ fontSize: '80px' }}>You have {correct > shortData.length / 2 ? 'passed' : 'failed'} the quiz & scored {correct} out of {shortData.length}</h1>
             </div> : null}
 
             {/* Render long answer score if available */}
             {longScore ? <div className='start-score'>
                 <Navbar />
-                <h1 style={{ fontSize: '80px' }}>You have scored {correct} out of {longData.length}</h1>
+                <h1 style={{ fontSize: '80px' }}>You have {correct > shortData.length / 2 ? 'passed' : 'failed'} the quiz & scored {correct} out of {longData.length}</h1>
             </div> : null}
 
             {/* Render MCQ answer score if available */}
             {mcqScore ? <div className='start-score'>
                 <Navbar />
-                <h1 style={{ fontSize: '80px' }}>You have scored {correct} out of {mcqData.length}</h1>
+                <h1 style={{ fontSize: '80px' }}>You have {correct > mcqData.length / 2 ? 'passed' : 'failed'} the quiz & scored {correct} out of {mcqData.length}</h1>
             </div> : null}
         </div>
     )
